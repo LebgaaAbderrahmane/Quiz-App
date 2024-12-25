@@ -1,0 +1,21 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/QuizAppDB
+    username: postgres
+    password: password
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        format_sql: true
+
+# Add the JWT configuration here
+jwt:
+  secret: d9e65db292c33b26b129a831138f6d929df2461b66a245da695550ddc98071052db9c4061c3af4721b1a5e676aa3fd39cfeb5b3d5e559300f1078b15945637a82f0b81e455c3b67333ed3ed9644257e4a797352b687c5c7d65ac57938e3a303881c97d390d92855d733eefc1194d3acb4afb69040c52b45bd66e78eab5a36c57aa70e8ae2751c9009f13fa1e184c708420e5ff35989696b17c7f7c12fdc79f4f999168210397e170583805300b8cc34e7fa94fb90f1681c5b028827a77c9fff086ee0106036e501ff712369b3ce49d0d00f14020f11ac72bd7956b00c77f9e0125d1248188931df61162c7e6a899fa2ffc38e896eb61f679264be02698a3d34a

@@ -1,4 +1,15 @@
-HELP.md
+# Ignore application config files that might contain secrets
+application.yml
+application.properties
+
+# Ignore .env files (if used for environment variables)
+.env
+
+# Ignore sensitive files (like secret keys, API keys, etc.)
+secret_key.txt
+secrets/
+
+# Ignore target directories
 target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
@@ -32,4 +43,5 @@ build/
 ### VS Code ###
 .vscode/
 
+# Miscellaneous
 .fake
