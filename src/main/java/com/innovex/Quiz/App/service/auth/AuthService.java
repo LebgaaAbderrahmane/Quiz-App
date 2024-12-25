@@ -37,6 +37,10 @@ public class AuthService {
         return userDetailsRepo.findByUsername(username) == null;
     }
 
+    public boolean isEmailValid(String email){
+        return userDetailsRepo.findByEmail(email) == null;
+    }
+
     public AuthService(TokenRepository tokenRepository, UserDetailsRepo userDetailsRepo, RoleRepo roleRepo, JwtService jwtService, AuthenticationManager authenticationManager) {
         this.tokenRepository = tokenRepository;
         this.userDetailsRepo = userDetailsRepo;
@@ -51,13 +55,17 @@ public class AuthService {
         if (!isUsernameValid(registerRequest.getUsername())) {
             return new ResponseEntity<>("Username is already taken", HttpStatus.BAD_REQUEST);
         }
+
+        if (!isEmailValid(registerRequest.getEmail())) {
+            return new ResponseEntity<>("Email is already taken", HttpStatus.BAD_REQUEST);
+        }
         User newUser = new User();
         newUser.setPassword(bCryptPasswordEncoder.encode(registerRequest.getPassword()));
         newUser.setUsername(registerRequest.getUsername());
         newUser.setEmail(registerRequest.getEmail());
         newUser.setName(registerRequest.getName());
 
-        Role role = roleRepo.findByName(registerRequest.getRole().getName());
+        Role role = roleRepo.findByName(registerRequest.getRole());
         if (role == null) {
             return new ResponseEntity<>("Role not found", HttpStatus.NOT_FOUND);
         }

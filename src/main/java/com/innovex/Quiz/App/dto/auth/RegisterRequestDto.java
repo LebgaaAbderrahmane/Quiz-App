@@ -1,6 +1,5 @@
 package com.innovex.Quiz.App.dto.auth;
 
-import com.innovex.Quiz.App.entity.auth.Role;
 import lombok.*;
 
 @Data
@@ -14,7 +13,7 @@ public class RegisterRequestDto {
     private String username;
     private String email;
     private String password;
-    private Role role;
+    private String role;
 
     public String getName() {
         return name;
@@ -48,11 +47,11 @@ public class RegisterRequestDto {
         this.password = password;
     }
 
-    public Role getRole() {
+    public String getRole() {
         return role;
     }
 
-    public void setRole(Role role) {
+    public void setRole(String role) {
         this.role = role;
     }
 }
