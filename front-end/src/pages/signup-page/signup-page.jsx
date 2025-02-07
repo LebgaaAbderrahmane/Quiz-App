@@ -1,15 +1,16 @@
-import "./login-page.css";
-import { useState, useEffect, useRef } from "react";
+
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-function LoginPage() {
+function SignupPage() {
     const [swipeR, setSwipeR] = useState(100);
     const [isTransitioning, setIsTransitioning] = useState(true);
     const [reset, setReset] = useState(0);
     const [changed, setChanged] = useState(false);
-    const [showPassword, setShowPassword] = useState(false);
+    const [showPassword1, setShowPassword1] = useState(false);
+    const [showPassword2, setShowPassword2] = useState(false);
 
     useEffect(() => {
-        document.title = "Quizly - Login";
+        document.title = "Quizly - Sign Up";
     },[]);
 
     useEffect(() => {
@@ -52,46 +53,8 @@ function LoginPage() {
         }
 
     }, [swipeR]);
-
-
     return <>
         <div className="login-container">
-            <div className="external-form">
-                <div className="internal-form">
-                    <div className="form-header">
-                        <h1>LOGIN</h1>
-                        <p>Don't have an account? <Link to="/signup">Create now</Link></p>
-                    </div>
-                    <div className="form-body">
-                        <label htmlFor="email">E-mail</label>
-                        <input type="email" name="email" id="email" placeholder="example@gmail.com" autoFocus />
-                        <label htmlFor="password">Password</label>
-                        <div className="password-container">
-                            <input type={showPassword ? "text" : "password"} id="password" placeholder="password" />
-                            <i className={showPassword ? "bx bx-lock-alt" : "bx bx-lock-open-alt"} onClick={() => {
-                                setShowPassword(!showPassword);                                
-                            }} ></i>
-                        </div>
-                        <div className="remember-forgot">
-                            <label htmlFor="remember">
-                                <input type="checkbox" name="remember" id="remember" />
-                                Remember me
-                            </label>
-                            <a href="#">Forgot password?</a>
-                        </div>
-                        <button>Login</button>
-                    </div>
-                    <div className="form-bottom">
-                        <div className="or">
-                            <p>OR</p>
-                        </div>
-                        <div className="social-media">
-                            <a href="#" className="google"><img src="/google.png" alt="google image" /> Google</a>
-                            <a href="#" className="github"><img src="/github.png" alt="github image" /> Github</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div className="taglines-container" >
                 <div className="parent" style={{ transform: `translateX(${swipeR}%)`, transition: isTransitioning ? "transform 1.5s" : "none" }}>
                     <div className="tagline">
@@ -165,11 +128,45 @@ function LoginPage() {
                         }
                     }} ></i>
                 </div>
-
+            </div>
+            <div className="external-form">
+                <div className="internal-form">
+                    <div className="form-header">
+                        <h1 style={{lineHeight:"4rem"}} >SIGN UP</h1>
+                        <p style={{marginTop: "10px"}}>Already have an account? <Link to="/login">Login here</Link></p>
+                    </div>
+                    <div className="form-body">
+                        <label htmlFor="email">E-mail</label>
+                        <input type="email" name="email" id="email" placeholder="example@gmail.com" autoFocus />
+                        <label htmlFor="password">Password</label>
+                        <div className="password-container">
+                            <input type={showPassword1 ? "text" : "password"} id="password" placeholder="password" />
+                            <i className={showPassword1 ? "bx bx-lock-alt" : "bx bx-lock-open-alt"} onClick={() => {
+                                setShowPassword1(!showPassword1);
+                            }} ></i>
+                        </div>
+                        <label htmlFor="confirm-password">Confirm Password</label>
+                        <div className="password-container">
+                            <input type={showPassword2 ? "text" : "password"} id="confirm-password" placeholder="password" />
+                            <i className={showPassword2 ? "bx bx-lock-alt" : "bx bx-lock-open-alt"} onClick={() => {
+                                setShowPassword2(!showPassword2);
+                            }} ></i>
+                        </div>
+                        <button style={{marginTop: "15px"}}>Login</button>
+                    </div>
+                    <div className="form-bottom">
+                        <div className="or">
+                            <p>OR</p>
+                        </div>
+                        <div className="social-media" style={{marginTop: "15px"}}>
+                            <a href="#" className="google"><img src="/google.png" alt="google image" /> Google</a>
+                            <a href="#" className="github"><img src="/github.png" alt="github image" /> Github</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </>
 }
 
-export default LoginPage;
-
+export default SignupPage;
