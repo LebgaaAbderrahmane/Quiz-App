@@ -11,26 +11,25 @@ function LoginPage() {
         document.title = "Quizly - Login";
     },[]);
 
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+
+    //         setChanged(true);
+    //         setSwipeR(swipeR => swipeR - 100);
+    //         setTimeout(() => {
+    //             setChanged(false);
+    //         }, 3000);
+    //     }, 5000);
+
+    //     return () => {
+
+    //         clearInterval(interval);
+
+    //     }
+    // }, [reset]);
+
+
     useEffect(() => {
-        const interval = setInterval(() => {
-
-            setChanged(true);
-            setSwipeR(swipeR => swipeR - 100);
-            setTimeout(() => {
-                setChanged(false);
-            }, 3000);
-        }, 5000);
-
-        return () => {
-
-            clearInterval(interval);
-
-        }
-    }, [reset]);
-
-
-    useEffect(() => {
-        console.log(swipeR);
         if (swipeR === -200) {
             setTimeout(() => {
                 setIsTransitioning(false);
@@ -69,15 +68,7 @@ function LoginPage() {
                         <div className="password-container">
                             <input type={showPassword ? "text" : "password"} id="password" placeholder="password" />
                             <i className={showPassword ? "bx bx-lock-alt" : "bx bx-lock-open-alt"} onClick={() => {
-                                setShowPassword(showPassword => {
-                                    setTimeout(() => {
-                                        let selectionstart = document.getElementById("password").selectionStart;
-                                        document.getElementById("password").setSelectionRange(selectionstart, selectionstart);
-                                        document.getElementById("password").focus();
-                                    },10);
-                                    return !showPassword;
-                                });
-                                
+                                setShowPassword(!showPassword);                                
                             }} ></i>
                         </div>
                         <div className="remember-forgot">
@@ -100,7 +91,7 @@ function LoginPage() {
                     </div>
                 </div>
             </div>
-            <div className="taglines-container" /*style={{"--position": `${swipeR*1.5}px` }}*/ >
+            <div className="taglines-container" >
                 <div className="parent" style={{ transform: `translateX(${swipeR}%)`, transition: isTransitioning ? "transform 1.5s" : "none" }}>
                     <div className="tagline">
                         <div className="text">

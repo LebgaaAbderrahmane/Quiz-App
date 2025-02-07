@@ -231,7 +231,8 @@ label{
 }
 .taglines-container .parent{
     width: 100%;
-    padding: 0 40px;
+    padding: 0 calc(50% - 250px);
+    box-sizing: border-box;
 }
 .taglines-container .tagline{
     width: 500px;
@@ -270,10 +271,10 @@ label{
     
     gap: 10px;
 }
-.selected-circle{
-    width: 7px !important;
-    height: 7px !important;
-    background-color: #fff !important;
+.arrows .circle-parent .selected-circle{
+    width: 7px ;
+    height: 7px ;
+    background-color: #fff ;
 }
 .arrows .circle{
     width: 4px;
@@ -296,4 +297,87 @@ label{
 }
 .right{
     left: 200px;
+}
+/* Extra Small Devices (phones) */
+@media (max-width: 576px){
+    .login-container .taglines-container{
+        display: none;
+    }
+    .login-container .external-form{
+        width: 100% ;
+        height: 100svh ; 
+    }
+    .login-container{
+        height: 100svh ;
+    }
+    .login-container .external-form .internal-form{
+        width: 85%;
+    }
+}
+/* Small Devices (Tablets in Protrait) */
+@media (min-width: 575px) and (max-width: 650px){
+    .login-container .taglines-container{
+        display: none;
+    }
+    .login-container .external-form{
+        width: 100% ;
+        height: 100svh ; 
+    }
+    .login-container{
+        height: 100svh ;
+    }
+    .login-container .external-form .internal-form{
+        width: 70%;
+    }
+
+}
+@media (min-width: 651px) and (max-width:844px){
+    .login-container .taglines-container{
+        display: none;
+    }
+    .login-container .external-form{
+        width: 100% ;
+        height: 100svh ; 
+    }
+    .login-container{
+        height: 100svh ;
+    }
+    .login-container .external-form .internal-form{
+        width: 60%;
+    }
+
+}
+/* Medium Devices (Tablets in Landscape, Small Laptops) */
+@media (min-width: 845px) and (max-width: 1050px){
+    .login-container .external-form{
+        height: 100svh ; 
+    }
+    .login-container{
+        height: 100svh ;
+    }
+    .login-container .external-form .internal-form{
+        width: 85%;
+    }
+    .taglines-container .parent{
+        width: 100%;
+        padding: 0 calc(50% - 200px);
+        box-sizing: border-box;
+    }
+    .taglines-container .tagline{
+        width: 400px;
+        height: 210px;
+        padding: 20px;
+    }
+    .taglines-container .tagline h1{
+        font-size: 1.6rem;
+        color: var(--primary-color);
+        line-height: 1.5;
+    }
+    .taglines-container .tagline p{
+        font-size: 0.8rem;
+        color: var(--secondary-color);
+    }
+    .tagline img{
+        width: 180px !important;
+    }
 }
