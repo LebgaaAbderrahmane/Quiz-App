@@ -20,7 +20,7 @@
 }
 .nav-bar .list ul{
     display: flex;
-    gap: 25px;
+    gap: 30px;
 }
 .nav-bar .list ul li{
     list-style: none;

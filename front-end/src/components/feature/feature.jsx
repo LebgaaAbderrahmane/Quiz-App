@@ -1,12 +1,17 @@
-function Feature({image, title, text, action }){
+import "./feature.css"
+function Feature({ image, title, text, action }) {
 
 
-    return(
+    return (
         <div className="feature">
-            <img src={image} />
+            <div className="image">
+                <i className={image}></i>
+            </div>
             <h3>{title}</h3>
-            <p>{text}</p>
-            <p>{action}</p>
+            <p className="text" >{text}</p>
+            <div className="action">
+                <p>{action} <i className="bx bx-chevron-right left"></i></p>
+            </div>
         </div>
     )
 }

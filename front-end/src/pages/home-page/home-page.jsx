@@ -5,9 +5,9 @@ import features from "../../components/feature/features";
 import { useEffect } from "react";
 function HomePage() {
 
-    useEffect(()=>{
+    useEffect(() => {
         document.title = "Quizly - Home";
-    },[])
+    }, [])
 
 
     return (
@@ -18,7 +18,7 @@ function HomePage() {
                     <div className="text">
                         <h2>Unlock Your Potential: Discover the Benefits of Using Quizly Today!</h2>
                         <p>Quizly enhances your knowledge through engaging quizzes that challenge your mind.
-                        Connect with friends and fellow quiz enthusiasts while having a blast!</p>
+                            Connect with friends and fellow quiz enthusiasts while having a blast!</p>
                         <ul>
                             <li><img src="/rocket.png" />Boost your knowledge with fun and interactive quizzes.</li>
                             <li><img src="/molecule.png" />Connect with others and share your quiz experiences.</li>
@@ -31,8 +31,28 @@ function HomePage() {
                 </div>
             </div>
             <div className="feature-section">
-                <Feature image={features[0].image} title={features[0].title} text={features[0].text} action={features[0].action} />
+                <div className="title">
+                    <h2>Unlock Your Creativity: Create Engaging Quizzes with Quizly</h2>
+                </div>
+                <div className="feature-container">
+                    {
+                        features.map((feature, index) => {
+                            return <Feature key={index} image={feature.image} title={feature.title} text={feature.text} action={feature.action} />
+                        })
+                    }
+                </div>
             </div>
+            <div className="cta">
+                <div className="text">
+                    <h3>Share Quizzes, Boost Interaction!</h3>
+                    <p>Invite your friends to join the fun and discover new quizzes together!</p>
+                    <div className="buttons">
+                        <button>Share</button>
+                        <button>Invite</button>
+                    </div>
+                </div>
+            </div>
+            <footer></footer>
         </div>
     )
 }
