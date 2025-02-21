@@ -12,8 +12,9 @@
     align-items: center;
     box-shadow: 0 0 10px rgb(189, 189, 189);
     position: fixed;
+    top: 0;
     z-index: 10;
-
+    transition: all 0.4s ease ;
 }
 .nav-bar .logo img{
     width: 100px;

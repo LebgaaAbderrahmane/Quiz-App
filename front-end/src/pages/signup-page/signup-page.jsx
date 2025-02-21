@@ -1,4 +1,5 @@
 
+import "./singup.css";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 function SignupPage() {
@@ -8,10 +9,20 @@ function SignupPage() {
     const [changed, setChanged] = useState(false);
     const [showPassword1, setShowPassword1] = useState(false);
     const [showPassword2, setShowPassword2] = useState(false);
+    const [formData, setFormData] = useState({email: "", password: "", confirm: ""});
+
+    const handleChange = (e)=>{
+        setFormData({
+            ...formData,
+            [e.target.name]: e.target.value,
+        });
+    }
 
     useEffect(() => {
         document.title = "Quizly - Sign Up";
-    },[]);
+    }, []);
+
+    console.log(formData);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -56,6 +67,7 @@ function SignupPage() {
     return <>
         <div className="login-container">
             <div className="taglines-container" >
+                <Link to="/" ><i className='back-arrow bx bx-arrow-back'></i></Link>
                 <div className="parent" style={{ transform: `translateX(${swipeR}%)`, transition: isTransitioning ? "transform 1.5s" : "none" }}>
                     <div className="tagline">
                         <div className="text">
@@ -132,33 +144,33 @@ function SignupPage() {
             <div className="external-form">
                 <div className="internal-form">
                     <div className="form-header">
-                        <h1 style={{lineHeight:"4rem"}} >SIGN UP</h1>
-                        <p style={{marginTop: "10px"}}>Already have an account? <Link to="/login">Login here</Link></p>
+                        <h1 style={{ lineHeight: "4rem" }} >SIGN UP</h1>
+                        <p style={{ marginTop: "10px" }}>Already have an account? <Link to="/login">Login here</Link></p>
                     </div>
                     <div className="form-body">
                         <label htmlFor="email">E-mail</label>
-                        <input type="email" name="email" id="email" placeholder="example@gmail.com" autoFocus />
+                        <input type="email" name="email" id="email" placeholder="example@gmail.com" autoFocus onChange={handleChange} />
                         <label htmlFor="password">Password</label>
                         <div className="password-container">
-                            <input type={showPassword1 ? "text" : "password"} id="password" placeholder="password" />
+                            <input type={showPassword1 ? "text" : "password"} id="password" placeholder="password" name="password" onChange={handleChange} />
                             <i className={showPassword1 ? "bx bx-lock-alt" : "bx bx-lock-open-alt"} onClick={() => {
                                 setShowPassword1(!showPassword1);
                             }} ></i>
                         </div>
                         <label htmlFor="confirm-password">Confirm Password</label>
                         <div className="password-container">
-                            <input type={showPassword2 ? "text" : "password"} id="confirm-password" placeholder="password" />
+                            <input type={showPassword2 ? "text" : "password"} id="confirm-password" placeholder="password" name="confirm" onChange={handleChange} />
                             <i className={showPassword2 ? "bx bx-lock-alt" : "bx bx-lock-open-alt"} onClick={() => {
                                 setShowPassword2(!showPassword2);
                             }} ></i>
                         </div>
-                        <button style={{marginTop: "15px"}}>Login</button>
+                        <button style={{ marginTop: "15px" }}  >Sign up</button>
                     </div>
                     <div className="form-bottom">
                         <div className="or">
                             <p>OR</p>
                         </div>
-                        <div className="social-media" style={{marginTop: "15px"}}>
+                        <div className="social-media" style={{ marginTop: "15px" }}>
                             <a href="#" className="google"><img src="/google.png" alt="google image" /> Google</a>
                             <a href="#" className="github"><img src="/github.png" alt="github image" /> Github</a>
                         </div>

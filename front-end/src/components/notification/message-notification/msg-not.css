@@ -1,0 +1,44 @@
+.message-notif {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    cursor: pointer;
+    padding: 7px 5px;
+}
+
+.message-notif img {
+    width: 50px;
+    border-radius: 50%;
+}
+
+.message-notif i {
+    font-size: 1.3rem;
+    color: #333;
+    cursor: pointer;
+}
+
+.message-notif .left-div {
+    display: flex;
+    gap: 15px;
+}
+
+.left-div .text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.message-notif .left-div .text p {
+    margin: 0;
+    font-weight: 500;
+    color: #333;
+}
+
+.left-div .Username {
+    font-size: 1rem;
+}
+
+.left-div .message {
+    font-size: 0.75rem;
+}

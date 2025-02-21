@@ -1,10 +1,10 @@
 import "./nav-bar.css";
 import { Link } from "react-router-dom";
-function NavBar() {
+function NavBar({visible}) {
 
 
     return (
-        <div className="nav-bar">
+        <div className="nav-bar" style={{transform : visible && "translateY(-65px)"}} >
             <div className="logo">
                 <Link to="/"><img src="/Quizly.png" alt="Quizly Logo" /></Link>
             </div>

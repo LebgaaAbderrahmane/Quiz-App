@@ -1,0 +1,18 @@
+.footer-container{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #888888;
+    margin-top: 20px;
+}
+.footer-container p{
+    font-size: 0.65rem;
+}
+.footer-container .links{
+    display: flex;
+    gap: 10px;
+}
+.footer-container .links a{
+    font-size: 0.65rem;
+}

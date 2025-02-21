@@ -1,0 +1,77 @@
+.side-bar-container {
+    height: 100vh;
+    width: 220px;
+    box-shadow: 0 0 5px rgba(205, 205, 205, 0.763);
+    padding: 20px 10px 40px 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: #fff;
+}
+.side-bar-container .logo{
+    display: flex;
+    justify-content: center;
+}
+.side-bar-container .elements{
+    display: flex;
+    flex-direction: column;
+}
+.side-bar-container .elements a{
+    text-decoration: none;
+    margin: 5px 0;
+    line-height: 10px;
+    padding: 5px 0 13px 0;
+    color: #333;
+    position: relative;
+    border-radius: 0 5px 5px 0 ;
+    font-size: 1.05rem;
+    font-weight: 400;
+    font-family: "Roboto", serif;
+    transition: all 0.3s ease;
+    vertical-align:top;
+}
+.side-bar-container .elements a:hover {
+    background-color: #f0f0f0af;
+}
+.side-bar-container .elements #home::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 5px;
+    background-color: #0066CC;
+    border-radius: 0 20px 20px 0 ;
+}
+
+.side-bar-container i{
+    font-size: 1.4rem;
+    padding: 0 15px 0 30px;
+    font-weight: 300;
+    position: relative;
+    top: 4px;
+}
+.side-bar-container .profile{
+    width: 100%;
+    display: flex;
+}
+#profile{
+    width: 100%;
+    text-decoration: none;
+    margin: 5px 0;
+    margin-left: 10px;
+    padding: 8px 0;
+    color: #333;
+    position: relative;
+    border-radius:5px ;
+    font-size: 1.1rem;
+    font-weight: 400;
+    font-family: "Roboto", serif;
+    transition: all 0.3s ease;
+}
+#profile:hover{
+    background-color: #f0f0f0af;
+}

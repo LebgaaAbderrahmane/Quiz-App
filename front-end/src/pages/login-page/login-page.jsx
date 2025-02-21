@@ -10,7 +10,7 @@ function LoginPage() {
 
     useEffect(() => {
         document.title = "Quizly - Login";
-    },[]);
+    }, []);
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -57,6 +57,7 @@ function LoginPage() {
     return <>
         <div className="login-container">
             <div className="external-form">
+                <Link to="/" ><i className='back bx bx-arrow-back'></i></Link>
                 <div className="internal-form">
                     <div className="form-header">
                         <h1>LOGIN</h1>
@@ -69,7 +70,7 @@ function LoginPage() {
                         <div className="password-container">
                             <input type={showPassword ? "text" : "password"} id="password" placeholder="password" />
                             <i className={showPassword ? "bx bx-lock-alt" : "bx bx-lock-open-alt"} onClick={() => {
-                                setShowPassword(!showPassword);                                
+                                setShowPassword(!showPassword);
                             }} ></i>
                         </div>
                         <div className="remember-forgot">
